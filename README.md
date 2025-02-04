@@ -47,6 +47,17 @@ To run this project, follow these steps:
     Thank you for visiting and checking out this project! Your support and feedback are greatly appreciated.
 
 
+
+##  Short answer to the following questions for the assigment:
+Q.1. 3 things that you learned from this assignment? <br>
+Answer : 1. Creating the Complex UI <br> 2. Breaking down the project to work effectively <br> 3. Effective Time Management   <br>
+
+Q.2 What was the most difficult part of the assignment? <br>
+Answer: For me it was replicating the UI and implementing the features <br>
+
+Q.3 What you would have done differently given more time? <br>
+Answer: whould have refined the product and maybe added some extra features for extra marks e.g. Dark mode 
+
 ### React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
