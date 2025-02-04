@@ -5,7 +5,7 @@ To run this project, follow these steps:
 
 1. **Clone the repository:**
     ```sh
-    git clone /e:/1.My Web Projects/3.Internship-assesment/Guestra-Assigment/Calendar-View
+    git clone https://github.com/arpan-pro-learner/Calendar_View_UI.git
     cd Calendar-View
     ```
 
