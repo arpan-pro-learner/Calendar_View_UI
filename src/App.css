@@ -1,0 +1,62 @@
+.month-view {
+  display: grid;
+  grid-template-columns: 50px repeat(7, 1fr); /* Adjust column widths as needed */
+  grid-template-rows: auto repeat(10, 1fr); /* Add as many rows as needed for the resources */
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%; /* Set a width if needed */
+}
+
+
+
+.resource-row {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+.resource-cell {
+    border: 1px solid #ccc;
+    padding: 5px;
+}
+
+.day {
+    border: 1px solid #ccc;
+    display: flex;
+    flex-direction: column;
+}
+
+.day-number {
+  font-weight: bold;
+}
+
+.events-container {
+  flex-grow: 1;
+  display: grid;
+  gap: 2px; /* Adjust gap */
+  grid-template-rows: repeat(10, 1fr);  /* Adjust to match your resources */
+}
+
+.event {
+    padding: 5px;
+    border-radius: 4px;
+    color: white;
+}
+
+/* Add more styles as needed for finer details, colors, hover effects, etc. */
+
+
+.App {
+  height: 100vh;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}

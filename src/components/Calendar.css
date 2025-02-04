@@ -1,0 +1,473 @@
+.calendar-container {
+  width: 100%;
+  height: 100vh;
+  overflow: auto;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: white;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  border-bottom: 1px solid #e5e7eb;
+  background: white;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.month-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #2f59e5;
+}
+
+.calendar-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.today-btn {
+  padding: 4px 12px;
+  font-size: 0.875rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.today-btn:hover {
+  opacity: 0.9;
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 1px;
+}
+
+.nav-btn {
+  padding: 4px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-btn:hover {
+  background-color: #f3f4f6;
+}
+
+.nav-icon {
+  width: 20px;
+  height: 20px;
+  color: #4b5563;
+}
+
+.calendar-body {
+  position: relative;
+}
+
+.date-header {
+  display: flex;
+  position: sticky;
+  top: 56px;
+  background: white;
+  z-index: 10;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.resource-header {
+  width: 120px;
+  flex-shrink: 0;
+  padding: 8px;
+  border-right: 1px solid #e5e7eb;
+  font-size: 0.875rem;
+  color: #4b5563;
+}
+
+.dates-row {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+}
+
+.date-cell {
+  flex: 1;
+  min-width: 0;
+  height: 50px;
+  padding: 4px;
+  border-right: 1px solid #e5e7eb;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.current-date {
+  background-color: #2563eb;
+}
+
+.current-date .day-name,
+.current-date .day-number {
+  color: white;
+}
+
+.day-name {
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+.day-number {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.calendar-grid {
+  display: flex;
+}
+
+.resources-column {
+  width: 120px;
+  flex-shrink: 0;
+}
+
+.resource-cell {
+  height: 64px;
+  padding: 8px;
+  border-right: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 0.875rem;
+  color: #374151;
+}
+
+.events-grid {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+}
+
+.grid-background {
+  position: absolute;
+  inset: 0;
+  display: flex;
+}
+
+.grid-column {
+  flex: 1;
+  min-width: 0;
+  border-right: 1px solid #e5e7eb;
+  height: 100%;
+}
+
+.events-container {
+  position: relative;
+}
+
+.resource-row {
+  height: 64px;
+  border-bottom: 1px solid #e5e7eb;
+  position: relative;
+}
+
+.event-block {
+  position: absolute;
+  height: 40px;
+  margin-top: 5px;
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-size: 0.875rem;
+  overflow: hidden;
+}
+
+.event-title {
+  font-weight: 500;
+  color: #111827;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.event-time {
+  font-size: 0.75rem;
+  color: #4b5563;
+}
+
+/* Event Colors */
+.event-blue {
+  background-color: #dbeafe;
+}
+
+.event-pink {
+  background-color: #fce7f3;
+}
+
+.event-green {
+  background-color: #dcfce7;
+}
+
+.event-yellow {
+  background-color: #fef9c3;
+}
+
+.event-cyan {
+  background-color: #cffafe;
+}
+
+.event-orange {
+  background-color: #ffedd5;
+}
+
+.event-red {
+  background-color: #fee2e2;
+}
+
+/* Add these new styles to your existing CSS */
+
+.drop-target {
+  background-color: rgba(59, 130, 246, 0.1);
+}
+
+
+
+.add-event-button:hover {
+  background-color: #1d4ed8;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.modal {
+  background-color: white;
+  padding: 24px;
+  border-radius: 8px;
+  width: 400px;
+  max-width: 90vw;
+}
+
+.modal h3 {
+  margin: 0 0 16px;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.modal input,
+.modal select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 4px;
+  font-size: 0.875rem;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.modal-actions button {
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.875rem;
+}
+
+.modal-actions button:first-child {
+  background-color: #f3f4f6;
+  color: #374151;
+}
+
+.modal-actions button:last-child {
+  background-color: #2563eb;
+  color: white;
+}
+
+.modal-actions button:hover {
+  opacity: 0.9;
+}
+
+.event-block {
+  cursor: move;
+  user-select: none;
+}
+
+.event-block:hover {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Button positioning */
+.calendar-controls-wrapper {
+  display: flex;
+  gap: 8px;
+  padding: 8px 16px;
+  border-bottom: 1px solid #e5e7eb;
+  background-color: white;
+}
+
+.controls-buttons {
+  display: flex;
+  gap: 8px;
+  margin-left: auto; 
+}
+
+/* Modal styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.modal-header h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #6b7280;
+  cursor: pointer;
+}
+
+.modal-body {
+  margin-bottom: 20px;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.cancel-btn,
+.submit-btn {
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 0.875rem;
+}
+
+.cancel-btn {
+  background-color: #f3f4f6;
+  color: #374151;
+}
+
+.submit-btn {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.cancel-btn:hover {
+  background-color: #e5e7eb;
+}
+
+.submit-btn:hover {
+  background-color: #2563eb;
+}
+
+/* Update the existing button styles */
+.add-event-button {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  color: white;
+  background-color: #3b82f6;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  z-index: 50;
+}
+
+.add-resource-button {
+  position: fixed;
+  bottom: 24px;
+  right: 150px; 
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  color: white;
+  background-color: #3b82f6;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  z-index: 50;
+}
+.add-event-button:hover,
+.add-resource-button:hover {
+  background-color: #2563eb;
+}
+
+/* Form styles for the modal */
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 0.875rem;
+  color: #374151;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  font-size: 0.875rem;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px #3b82f6;
+}

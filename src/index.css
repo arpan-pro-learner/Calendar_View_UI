@@ -1,0 +1,28 @@
+.App {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+.days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr); /* Adjust based on your requirements */
+  gap: 10px;
+}
+
+.event {
+  padding: 5px;
+  color: white;
+  border-radius: 4px;
+  margin: 2px 0;
+}
